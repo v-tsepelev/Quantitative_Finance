@@ -51,14 +51,14 @@ for i in range(0,M+1):
 
 # calculate possible option final prices -- choose call or put function
 for i in range(0,M+1):
-    option_final_prices.append(put(stock_final_prices[i], K))
+    option_final_prices.append(call(stock_final_prices[i], K))
 
 option_prices[M] = option_final_prices
 
 # going backwards -- uncomment european or american function, choose call or put for american style
 for i in range(M-1,-1,-1):
     for j in range(0,i+1):
-        #option_prices[i][j] = european()
-        option_prices[i][j] = american(call(S0*math.pow(u,j)*math.pow(d,i-j), K))
+        option_prices[i][j] = european()
+        #option_prices[i][j] = american(call(S0*math.pow(u,j)*math.pow(d,i-j), K))
 
 print('The price is ${0} for {1} steps.'.format(option_prices[0][0], M))
