@@ -58,7 +58,7 @@ option_prices[M] = option_final_prices
 # going backwards -- uncomment european or american function, choose call or put for american style
 for i in range(M-1,-1,-1):
     for j in range(0,i+1):
-        option_prices[i][j] = european()
-        #option_prices[i][j] = american(call(S0*math.pow(u,j)*math.pow(d,i-j), K))
+        #option_prices[i][j] = european()
+        option_prices[i][j] = american(call(S0*math.pow(u,j)*math.pow(d,i-j), K))
 
 print('The price is ${0} for {1} steps.'.format(option_prices[0][0], M))
