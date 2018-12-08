@@ -3,11 +3,11 @@
 
 import math
 
-T = 1 # time horizon
+T = 0.25 # time horizon
 M = 99 # quantity of steps
 t = T/M # step
-sigma = 0.1391*math.sqrt(0.25) # volatility
-r = 0.0214/4 # interest rate
+sigma = 0.1391 # volatility
+r = 0.0214 # interest rate
 u = math.exp(sigma*math.sqrt(t)) # up-factor
 d = 1.0/u # down-factor
 S0 = 2888.60 # initial underlying stock price
@@ -51,7 +51,7 @@ for i in range(0,M+1):
 
 # calculate possible option final prices -- choose call or put function
 for i in range(0,M+1):
-    option_final_prices.append(call(stock_final_prices[i], K))
+    option_final_prices.append(put(stock_final_prices[i], K))
 
 option_prices[M] = option_final_prices
 
